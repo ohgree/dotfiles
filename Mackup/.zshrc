@@ -164,5 +164,4 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 # hyperterm + zsh copy & paste fix
 #unset zle_bracketed_paste
 
-FDMC="ec2-54-180-119-135.ap-northeast-2.compute.amazonaws.com"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
