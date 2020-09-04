@@ -1,0 +1,104 @@
+<application>
+  <component name="RecentProjectsManager">
+    <option name="recentPaths">
+      <list>
+        <option value="$USER_HOME$/IdeaProjects/cs2019java" />
+        <option value="$USER_HOME$/Documents/workspace/java/cs2019hw3" />
+        <option value="$USER_HOME$/Library/Mobile Documents/com~apple~CloudDocs/sogang/sem4/cs2019-2/java/hw3" />
+        <option value="$USER_HOME$/CloudDocs/sogang/sem4" />
+        <option value="$USER_HOME$/CloudDocs/sogang/sem4/cs2019-2/java/cs2019hw2" />
+        <option value="$USER_HOME$/Library/Mobile Documents/com~apple~CloudDocs/sogang/sem4/cs2019-2/java/cs2019hw1" />
+        <option value="$USER_HOME$/IdeaProjects/cs2019hw1" />
+      </list>
+    </option>
+    <option name="openPaths">
+      <list>
+        <option value="$USER_HOME$/IdeaProjects/cs2019java" />
+      </list>
+    </option>
+    <option name="lastPath" value="$USER_HOME$/IdeaProjects/cs2019java" />
+    <option name="pid" value="" />
+    <option name="additionalInfo">
+      <map>
+        <entry key="$USER_HOME$/CloudDocs/sogang/sem4">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-192.7142.36" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1574937094466" />
+              <option name="buildTimestamp" value="1572321751538" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/CloudDocs/sogang/sem4/cs2019-2/java/cs2019hw2">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-192.7142.36" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1573710785699" />
+              <option name="buildTimestamp" value="1572321778527" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documents/workspace/java/cs2019hw3">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-192.7142.36" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1575261751319" />
+              <option name="buildTimestamp" value="1572321726511" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/IdeaProjects/cs2019hw1">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-192.6817.14" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1569668083173" />
+              <option name="buildTimestamp" value="1569296618021" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/IdeaProjects/cs2019java">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-192.7142.36" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1575264868352" />
+              <option name="buildTimestamp" value="1572321726511" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Library/Mobile Documents/com~apple~CloudDocs/sogang/sem4/cs2019-2/java/cs2019hw1">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-192.6817.14" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1569670813598" />
+              <option name="buildTimestamp" value="1569296590150" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Library/Mobile Documents/com~apple~CloudDocs/sogang/sem4/cs2019-2/java/hw3">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-192.7142.36" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1574937177939" />
+              <option name="buildTimestamp" value="1572321751538" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="lastProjectLocation" value="$USER_HOME$/Documents/workspace/java" />
+  </component>
+</application>

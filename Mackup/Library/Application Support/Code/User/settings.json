@@ -1,0 +1,28 @@
+{
+    "editor.fontFamily": "'DejaVuSansMono Nerd Font',Menlo, Monaco, 'Courier New', monospace",
+    "editor.tabSize": 3,
+    "editor.rulers": [80],
+    "workbench.colorCustomizations": {
+        //"editorRuler.foreground": "#ff4081"
+    },
+    "editor.fontSize": 13,
+    "sync.gist": "f4413244e0df3ce26469f882c0e66d63",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Default Light+",
+    "workbench.colorCustomizations": {
+        "editorCursor.foreground": "#fa7268",
+        "editorCursor.background": "#ffffff",
+        //"terminalCursor.foreground": "#ffff00"
+    },
+    "copy-syntax.formatters.rtf": {
+        "style": "default",
+        "fontsize": 16,
+        "fontface": "Monaco"
+    },
+    "workbench.startupEditor": "newUntitledFile",
+    "files.exclude": {
+        ".vscode/": true
+    },
+    "workbench.editor.showTabs": true,
+    "python.pythonPath": "/usr/local/bin/python3"
+}
