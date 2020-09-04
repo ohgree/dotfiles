@@ -133,8 +133,9 @@ alias lll='CLICOLOR_FORCE=1 ls -alF |less -XR'
 alias grep='grep --color=auto'
 alias sudo='sudo '
 alias mvim='mvim -v'
-alias vi='mvim -v'
+#alias vi='mvim -v'
 alias vim='mvim -v'
+alias vi='nvim'
 
 #export MSF_DATABASE_CONFIG=/usr/local/share/metasploit-framework/config/database.yml
 
