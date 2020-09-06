@@ -23,8 +23,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'morhetz/gruvbox'
+Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 let g:load_doxygen_syntax=1
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -43,103 +43,20 @@ let g:rustfmt_autosave = 1
 Plug 'Raimondi/delimitMate'
 call plug#end()
 
-
-" TODO: General vim settings
-
-filetype plugin on
-if has("syntax")
-    syntax on           " Default to no syntax highlightning
-endif
-
-" Clear search
-map <leader><space> :let @/=''<cr>
-
-" Visualize tabs and newlines
-set listchars=tab:▸\ ,eol:¬
-
-" Uncomment this to enable by default:
-" set list " To enable by default
-" Or use your leader key + l to toggle on/off
-map <leader>l :set list!<CR> " Toggle tabs and EOL
-
-map <F1> V][zf
-noremap <F3>  :call HexMe()<CR>
-" Enable S-TAB for virtual terminals
-inoremap [Z <S-TAB>
-
-let $in_hex=0
-function HexMe()
-    set binary
-    set noeol
-    if $in_hex>0
-        :%!xxd -r
-        let $in_hex=0
-    else
-        :%!xxd
-        let $in_hex=1
-    endif
-endfunction
-
-" j/k will move virtual lines (lines that wrap)
-noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
-
-set guicursor=
-set autoindent
-set cindent
-set smartindent
-"set textwidth=80
-set wrap
-" Show file stats
-set ruler
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set number
-set relativenumber
-set cursorline
-set fileencoding=utf-8
-set encoding=utf-8
-set background=dark
-set smarttab
-" always uses spaces instead of tab characters
-set expandtab
-set title
-set scrolloff=3
-set colorcolumn=80
-" Disable automatic newline at eof
-set nofixendofline
-" Set internal shell to bash
-set shell=/bin/bash
-
-" FROM: coc readme
-" if hidden is not set, TextEdit might fail.
-set hidden 
-" Some servers have issues with backup files, see #649 
-set nobackup 
-set nowritebackup 
-" Better display for messages 
-set cmdheight=2 
-" You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-" always show signcolumns
-set signcolumn=yes
-
-colorscheme gruvbox
-
-
 " TODO: Configs for plugins
+" Colorscheme - gruvbox
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_italic = '1'
+
 " NerdTree
 " Options: NERDTree
 " Shortcut to open & close NERDTree
 noremap <C-n> :NERDTreeToggle<CR>
 " Close vim if NERDTree is the only window open
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Automatically opens up when vim starts with no files specified
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Automatically open up when vim opens a directory
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
@@ -149,9 +66,6 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 let g:delimitMate_expand_cr = 2
 " Removes autopairing of '<' if filetype is..
 "au FileType c,cpp,rust let b:delimitMate_matchpairs = '(:),{:},[:]'
-
-" Always enable preview window on the right with 60% width
-let g:fzf_preview_window = 'right:60%'
 
 " UltiSnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -168,13 +82,9 @@ let g:airline_powerline_fonts = 1
 " Rainbow parentheses
 au VimEnter * RainbowParentheses!!
 augroup rainbow_off
-    autocmd!
-    autocmd FileType cmake RainbowParentheses!!
+    "autocmd!
+    "autocmd FileType cmake RainbowParentheses!!
 augroup END
-
-" Colorscheme - gruvbox
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_italic = '1'
 
 "inoremap jk <ESC>
 
@@ -325,6 +235,10 @@ function! s:build_quickfix_list(lines)
     cc
 endfunction
 
+
+" Always enable preview window on the right with 60% width
+let g:fzf_preview_window = 'right:60%'
+
 let g:fzf_action = {
             \ 'ctrl-q': function('s:build_quickfix_list'),
             \ 'ctrl-t': 'tab split',
@@ -362,3 +276,90 @@ let g:fzf_colors =
 " - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+
+" TODO: General vim settings
+
+filetype plugin on
+if has("syntax")
+    syntax on           " Default to no syntax highlightning
+endif
+
+" Clear search
+map <leader><space> :let @/=''<cr>
+
+" Visualize tabs and newlines
+set listchars=tab:▸\ ,eol:¬
+
+" Uncomment this to enable by default:
+" set list " To enable by default
+" Or use your leader key + l to toggle on/off
+map <leader>l :set list!<CR> " Toggle tabs and EOL
+
+map <F1> V][zf
+noremap <F3>  :call HexMe()<CR>
+" Enable S-TAB for virtual terminals
+inoremap [Z <S-TAB>
+
+let $in_hex=0
+function HexMe()
+    set binary
+    set noeol
+    if $in_hex>0
+        :%!xxd -r
+        let $in_hex=0
+    else
+        :%!xxd
+        let $in_hex=1
+    endif
+endfunction
+
+" j/k will move virtual lines (lines that wrap)
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+
+set guicursor=
+set autoindent
+set cindent
+set smartindent
+"set textwidth=80
+set wrap
+" Show file stats
+set ruler
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set number
+set relativenumber
+set cursorline
+set fileencoding=utf-8
+set encoding=utf-8
+set background=dark
+set smarttab
+" always uses spaces instead of tab characters
+set expandtab
+set title
+set scrolloff=3
+set colorcolumn=80
+" Disable automatic newline at eof
+set nofixendofline
+
+" FROM: coc readme
+" if hidden is not set, TextEdit might fail.
+set hidden 
+" Some servers have issues with backup files, see #649 
+set nobackup 
+set nowritebackup 
+" Better display for messages 
+set cmdheight=2 
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" always show signcolumns
+set signcolumn=yes
+
+" Set internal shell to bash
+set shell=/bin/bash
+
+colorscheme gruvbox
