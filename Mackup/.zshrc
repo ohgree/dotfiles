@@ -76,15 +76,7 @@ plugins=(
 # User name
 DEFAULT_USER=`whoami`
 
-#PATH=/usr/local/bin:/usr/local/sbin:$PATH
-
-export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
 export PATH="$HOME/.cargo/bin:$PATH"
-# for YCM's rust semantic completion
-#export PATH="/var/folders/kr/0y0mh0vx5dl_sq9yx7bdynt80000gn/T/rust_install_wp78sf94/bin:$PATH"
-#export PATH="`rustc --print sysroot`/lib/rustlib/src/rust/src:$PATH"
-export PATH="$HOME/mytools:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -144,3 +136,5 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 # command
 unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
+export PATH="$HOME/.cargo/bin:$PATH"
