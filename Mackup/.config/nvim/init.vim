@@ -104,9 +104,9 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 let g:coc_global_extensions = [
             \ 'coc-snippets',
             \ 'coc-pairs',
-            \ 'coc-tsserver',
+            "\ 'coc-tsserver',
             \ 'coc-eslint', 
-            \ 'coc-prettier', 
+            "\ 'coc-prettier', 
             \ 'coc-json', 
             \ 'coc-rust-analyzer',
             \ 'coc-python',

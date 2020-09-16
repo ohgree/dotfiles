@@ -124,14 +124,23 @@ export CLICOLOR=1
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF' 
-alias lll='CLICOLOR_FORCE=1 ls -alF |less -XR'
+alias lll='ls -alF --color=always |less -XR'
 alias grep='grep --color=auto'
 alias sudo='sudo '
 alias vi='nvim'
 
-# byobu settings
-export BYOBU_PREFIX=/usr/local
-export BYOBU_PYTHON=/usr/local/bin/python3
-
 # my bash functions
 source $HOME/.bash_utility
+
+NPM_PACKAGES="${HOME}/.npm-packages"
+
+# set PATH so it includes user's private bin directories
+PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
+NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+
+PATH="$NPM_PACKAGES/bin:$PATH"
+# Unset manpath so we can inherit from /etc/manpath via the `manpath`
+# command
+unset MANPATH # delete if you already modified MANPATH elsewhere in your config
+MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
