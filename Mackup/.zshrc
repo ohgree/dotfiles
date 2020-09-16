@@ -124,16 +124,9 @@ export CLICOLOR=1
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF' 
-alias scrnl='screen -list'
-alias scrns='screen -S ohgree'
-alias scrnr='screen -r'
-alias scrn='screen'
 alias lll='CLICOLOR_FORCE=1 ls -alF |less -XR'
 alias grep='grep --color=auto'
 alias sudo='sudo '
-alias mvim='mvim -v'
-#alias vi='mvim -v'
-alias vim='mvim -v'
 alias vi='nvim'
 
 # byobu settings
