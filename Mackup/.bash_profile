@@ -12,25 +12,6 @@ alias grep='grep --color=auto'
 
 export CLICOLOR=1
 
-function ccmp {
-	src=$1
-	if [ ${#src} -eq 0 ]
-		then
-		echo "Usage: ccmp filename"
-	elif [ ${#2} -ne 0 ]
-		then
-		echo "Usage: ccmp filename"
-	elif [ ! -f $1 ]
-		then
-		echo "No file named $1 exists."
-	elif [ "${src:${#src}-2:${#src}}" != ".c" ]
-		then
-		echo "The file given is not a C source file!"
-	else
-		gcc -o ${src:0:${#src}-2} $src
-	fi
-}
-
 # Terminal colours (after installing GNU coreutils)
 NM="\[\033[0;38m\]" #means no background and white lines
 HI="\[\033[0;37m\]" #change this for letter colors
@@ -39,6 +20,36 @@ SI="\[\033[0;33m\]" #this is for the current directory
 IN="\[\033[0m\]"
 
 export PS1="$NM[ $HI\u $HII\h $SI\w$NM ] $IN"
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
 
 #if [ "$TERM" != "dumb" ]; then
 #    export LS_OPTIONS='--color=auto'
@@ -55,31 +66,21 @@ export PS1="$NM[ $HI\u $HII\h $SI\w$NM ] $IN"
 #		  alias ssh="ssh -X"
 #		  alias ..="cd .."
 
-# MacPorts Installer addition on 2014-05-31_at_16:13:28: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export MANPATH=/opt/local/share/man:$MANPATH
-# Finished adapting your PATH environment variable for use with MacPorts.
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+force_color_prompt=yes
 
-# PATH="/Users/InfectedDuck/Programs/john-1.7.9-jumbo-7-macosx-Intel-2/run:${PATH}"
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
 
-# Setting PATH for Python 3.4
-# The orginal version is saved in .bash_profile.pysave
-# 14. 10. 10. Added john PATH
-PATH="/john/run:/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
-export PATH
-# JOHN=/john
-
-##
-# Your previous /Users/InfectedDuck/.bash_profile file was backed up as /Users/InfectedDuck/.bash_profile.macports-saved_2014-10-20_at_10:38:27
-##
-
-# MacPorts Installer addition on 2014-10-20_at_10:38:27: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-PATH=/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/john/run:/Library/Frameworks/Python.framework/Versions/3.4/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
-
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-export PATH="$HOME/.cargo/bin:$PATH"
+# set PATH so it includes user's private bin directories
+PATH="$HOME/bin:$HOME/.local/bin:$PATH"
