@@ -3,17 +3,17 @@ call plug#begin('~/.config/nvim/plugged')
 " Use release branch
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'scrooloose/nerdtree'
-Plug 'tsony-tsonev/nerdtree-git-plugin'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
-Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
+"Plug 'scrooloose/nerdtree'
+"Plug 'tsony-tsonev/nerdtree-git-plugin'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+"Plug 'ryanoasis/vim-devicons'
+"Plug 'airblade/vim-gitgutter'
+"Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 Plug 'scrooloose/nerdcommenter'
 "Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-Plug 'christoomey/vim-tmux-navigator'
+"Plug 'christoomey/vim-tmux-navigator'
 
 "Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
@@ -27,7 +27,7 @@ Plug 'morhetz/gruvbox'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 let g:load_doxygen_syntax=1
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " UltiSnips - The ultimate snippet solution for Vim.
 " Track the engine.
@@ -36,8 +36,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'honza/vim-snippets'
 
 " Rust vim config
-Plug 'rust-lang/rust.vim'
-let g:rustfmt_autosave = 1
+"Plug 'rust-lang/rust.vim'
+"let g:rustfmt_autosave = 1
 
 " delimitMate by Raimondi
 Plug 'Raimondi/delimitMate'
@@ -48,32 +48,11 @@ call plug#end()
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_italic = '1'
 
-" NerdTree
-" Options: NERDTree
-" Shortcut to open & close NERDTree
-noremap <C-n> :NERDTreeToggle<CR>
-" Close vim if NERDTree is the only window open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Automatically opens up when vim starts with no files specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" Automatically open up when vim opens a directory
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-
 " Options: delimitMate
 " Number of CRs to put, ex) if 2, {<CR> will place cursor between the lines
 let g:delimitMate_expand_cr = 2
 " Removes autopairing of '<' if filetype is..
 "au FileType c,cpp,rust let b:delimitMate_matchpairs = '(:),{:},[:]'
-
-" UltiSnips
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 
 " Airline theme setup
 let g:airline_theme='gruvbox'
@@ -88,28 +67,10 @@ augroup END
 
 "inoremap jk <ESC>
 
-" vim-prettier
-"let g:prettier#quickfix_enabled = 0
-"let g:prettier#quickfix_auto_focus = 0
-" prettier command for coc
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-" run prettier on save
-"let g:prettier#autoformat = 0
-"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-
-" ctrlp
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
 " coc config
 let g:coc_global_extensions = [
             \ 'coc-snippets',
             \ 'coc-pairs',
-            "\ 'coc-tsserver',
-            \ 'coc-eslint', 
-            "\ 'coc-prettier', 
-            \ 'coc-json', 
-            \ 'coc-rust-analyzer',
-            \ 'coc-python',
             \ 'coc-clangd',
             \ ]
 " Use tab for trigger completion with characters ahead and navigate.
@@ -220,63 +181,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-" fzf
-" This is the default extra key bindings
-let g:fzf_action = {
-            \ 'ctrl-t': 'tab split',
-            \ 'ctrl-x': 'split',
-            \ 'ctrl-v': 'vsplit' }
-
-" An action can be a reference to a function that processes selected lines
-function! s:build_quickfix_list(lines)
-    call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-    copen
-    cc
-endfunction
-
-
-" Always enable preview window on the right with 60% width
-let g:fzf_preview_window = 'right:60%'
-
-let g:fzf_action = {
-            \ 'ctrl-q': function('s:build_quickfix_list'),
-            \ 'ctrl-t': 'tab split',
-            \ 'ctrl-x': 'split',
-            \ 'ctrl-v': 'vsplit' }
-
-" Default fzf layout
-" - down / up / left / right
-let g:fzf_layout = { 'down': '40%' }
-
-" You can set up fzf window using a Vim command (Neovim or latest Vim 8 required)
-let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_layout = { 'window': '-tabnew' }
-let g:fzf_layout = { 'window': '10new' }
-
-" Customize fzf colors to match your color scheme
-" - fzf#wrap translates this to a set of `--color` options
-let g:fzf_colors =
-            \ { 'fg':      ['fg', 'Normal'],
-            \ 'bg':      ['bg', 'Normal'],
-            \ 'hl':      ['fg', 'Comment'],
-            \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-            \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-            \ 'hl+':     ['fg', 'Statement'],
-            \ 'info':    ['fg', 'PreProc'],
-            \ 'border':  ['fg', 'Ignore'],
-            \ 'prompt':  ['fg', 'Conditional'],
-            \ 'pointer': ['fg', 'Exception'],
-            \ 'marker':  ['fg', 'Keyword'],
-            \ 'spinner': ['fg', 'Label'],
-            \ 'header':  ['fg', 'Comment'] }
-
-" Enable per-command history
-" - History files will be stored in the specified directory
-" - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
-"   'previous-history' instead of 'down' and 'up'.
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-
 
 " TODO: General vim settings
 
