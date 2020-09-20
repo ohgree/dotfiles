@@ -1,14 +1,3 @@
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF' 
-alias scrnl='screen -list'
-alias scrns='screen -S ohgree'
-alias scrnr='screen -r'
-alias scrn='screen'
-#alias python='python3'
-alias lll='ls -alF |less -X'
-alias john='/john/run/john'
-alias grep='grep --color=auto'
 
 export CLICOLOR=1
 
@@ -49,6 +38,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias vi='nvim'
 
 
 #if [ "$TERM" != "dumb" ]; then
@@ -83,8 +73,26 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 # set PATH so it includes user's private bin directories
-PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+PATH="$PATH:$HOME/.local/bin"
 
 NPM_PACKAGES="${HOME}/.npm-packages"
+export PATH=$PATH:$HOME/usr/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/lib
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:$HOME/usr/include
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$HOME/usr/include
 
-exec ~/bin/zsh -l
+# my bash functions
+source $HOME/.bash_utility
+
+NPM_PACKAGES="${HOME}/.npm-packages"
+NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+PATH="$PATH:$NPM_PACKAGES/bin"
+
+# Unset manpath so we can inherit from /etc/manpath via the `manpath`
+# command
+unset MANPATH # delete if you already modified MANPATH elsewhere in your config
+MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
+export PATH=$PATH:$HOME/pintos/src/utils
+
+#exec ~/bin/zsh -l
