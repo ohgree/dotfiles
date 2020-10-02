@@ -13,7 +13,7 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
 #ZSH_THEME="agnoster"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 POWERLEVEL9K_MODE='nerdfont-complete'
 
 #fish-like truncation
@@ -108,9 +108,9 @@ source $ZSH/oh-my-zsh.sh
 export CLICOLOR=1
 
 # enable ls colors
-export LSCOLORS=exfxcxdxbxeggdabagacad
-export LS_COLORS="di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=36;43:su=0;41:sg=0;46:tw=0;30;42:ow=0;43:"
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+#export LSCOLORS=exfxcxdxbxeggdabagacad
+#export LS_COLORS="di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=36;43:su=0;41:sg=0;46:tw=0;30;42:ow=0;43:"
+#zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,

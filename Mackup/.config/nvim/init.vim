@@ -41,6 +41,7 @@ let g:rustfmt_autosave = 1
 
 " delimitMate by Raimondi
 Plug 'Raimondi/delimitMate'
+"Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " TODO: Configs for plugins
@@ -65,7 +66,8 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " Number of CRs to put, ex) if 2, {<CR> will place cursor between the lines
 let g:delimitMate_expand_cr = 2
 " Removes autopairing of '<' if filetype is..
-"au FileType c,cpp,rust let b:delimitMate_matchpairs = '(:),{:},[:]'
+au FileType c,cpp,rust let b:delimitMate_matchpairs = '(:),{:},[:]'
+let g:delimitMate_matchpairs = '(:),{:},[:]'
 
 " UltiSnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
