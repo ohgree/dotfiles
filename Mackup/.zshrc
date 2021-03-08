@@ -111,7 +111,9 @@ export CLICOLOR=1
 #export LSCOLORS=exfxcxdxbxeggdabagacad
 #export LS_COLORS="di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=36;43:su=0;41:sg=0;46:tw=0;30;42:ow=0;43:"
 #zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-
+eval `gdircolors ~/.dir_colors/solarized/dircolors.ansi-dark`
+alias ls='gls --color=auto'
+alias dir='gdir --color=auto'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -129,7 +131,7 @@ alias scrnl='screen -list'
 alias scrns='screen -S ohgree'
 alias scrnr='screen -r'
 alias scrn='screen'
-alias lll='CLICOLOR_FORCE=1 ls -alF |less -XR'
+alias lll='ls -alF --color=always |less -XR'
 alias grep='grep --color=auto'
 alias sudo='sudo '
 alias mvim='mvim -v'
@@ -166,3 +168,6 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 #unset zle_bracketed_paste
 
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"

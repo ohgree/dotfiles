@@ -247,6 +247,9 @@ Plugin 'flrnd/plastic.vim'
 Plugin 'morhetz/gruvbox'
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_italic = '1'
+ 
+Plugin 'yuezk/vim-js'
+Plugin 'maxmellon/vim-jsx-pretty'
 
 " NOTE: My custom plugins end here
 

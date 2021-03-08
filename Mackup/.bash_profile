@@ -7,7 +7,6 @@ alias scrnr='screen -r'
 alias scrn='screen'
 #alias python='python3'
 alias lll='ls -alF |less -X'
-alias john='/john/run/john'
 alias grep='grep --color=auto'
 
 export CLICOLOR=1
@@ -54,28 +53,6 @@ export PS1="$NM[ $HI\u $HII\h $SI\w$NM ] $IN"
 #		  alias e="exit"
 #		  alias ssh="ssh -X"
 #		  alias ..="cd .."
-
-# MacPorts Installer addition on 2014-05-31_at_16:13:28: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export MANPATH=/opt/local/share/man:$MANPATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-# PATH="/Users/InfectedDuck/Programs/john-1.7.9-jumbo-7-macosx-Intel-2/run:${PATH}"
-
-# Setting PATH for Python 3.4
-# The orginal version is saved in .bash_profile.pysave
-# 14. 10. 10. Added john PATH
-PATH="/john/run:/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
-export PATH
-# JOHN=/john
-
-##
-# Your previous /Users/InfectedDuck/.bash_profile file was backed up as /Users/InfectedDuck/.bash_profile.macports-saved_2014-10-20_at_10:38:27
-##
-
-# MacPorts Installer addition on 2014-10-20_at_10:38:27: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
 
 PATH=/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/john/run:/Library/Frameworks/Python.framework/Versions/3.4/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 
