@@ -149,9 +149,6 @@ export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 export BYOBU_PREFIX=/usr/local
 export BYOBU_PYTHON=/usr/local/bin/python3
 
-# wine-masm settings
-source $HOME/.winerc
-
 # my bash functions
 source $HOME/.bash_utility
 
@@ -168,6 +165,3 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 #unset zle_bracketed_paste
 
 export PATH="/usr/local/opt/llvm/bin:$PATH"
-
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
