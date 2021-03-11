@@ -165,7 +165,7 @@ module.exports = {
     //
     // PowerShell on Windows
     // - Example: `C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe`
-    shell: '/usr/local/bin/zsh',
+    //shell: '/usr/local/bin/zsh',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
     // by default `['--login']` will be used
@@ -206,7 +206,7 @@ module.exports = {
     //'hyper-firenokai',
     'hyper-alt-click',
     'hyper-tabs-enhanced',
-    'hypercwd',
+    //'hypercwd',
     //'git-falcon9',
     'hyperline',
     //'hyper-statusline',
