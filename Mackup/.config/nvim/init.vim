@@ -44,9 +44,11 @@ Plug 'Raimondi/delimitMate'
 "Plug 'jiangmiao/auto-pairs'
 "
 "Plug 'pangloss/vim-javascript'
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
+"Plug 'yuezk/vim-js'
+"Plug 'maxmellon/vim-jsx-pretty'
 "Plug 'chemzqm/vim-jsx-improve'
+Plug 'ap/vim-css-color'
+
 call plug#end()
 
 " TODO: Configs for plugins
@@ -99,7 +101,7 @@ augroup END
 "let g:prettier#quickfix_enabled = 0
 "let g:prettier#quickfix_auto_focus = 0
 " prettier command for coc
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+"command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " run prettier on save
 "let g:prettier#autoformat = 0
 "autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
@@ -137,7 +139,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Or use `complete_info` if your vim support it, like:
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
@@ -227,6 +229,16 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
 
 " fzf
 " This is the default extra key bindings
