@@ -42,6 +42,10 @@ let g:rustfmt_autosave = 1
 " delimitMate by Raimondi
 Plug 'Raimondi/delimitMate'
 "Plug 'jiangmiao/auto-pairs'
+
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+
 call plug#end()
 
 " TODO: Configs for plugins
@@ -328,9 +332,9 @@ set smartindent
 set wrap
 " Show file stats
 set ruler
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set number
 set relativenumber
 set cursorline

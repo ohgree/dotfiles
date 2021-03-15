@@ -1,5 +1,5 @@
 [user]
-    name = Minjun Shin
+	name = MJ Shin
     email = ohgree@u.sogang.ac.kr
 [color]
     ui = auto
@@ -22,3 +22,5 @@
     lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
 
     toplevel = rev-parse --show-toplevel
+[credential]
+	helper = "!f() { /home/mjshin/.vscode-server/bin/fd6f3bce6709b121a895d042d343d71f317d74e7/node /tmp/vscode-remote-containers-1f491d04f947f3c76bc1a477200be15b5000e233.js $*; }; f"
