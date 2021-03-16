@@ -23,4 +23,4 @@
 
     toplevel = rev-parse --show-toplevel
 [credential]
-	helper = "!f() { /home/mjshin/.vscode-server/bin/fd6f3bce6709b121a895d042d343d71f317d74e7/node /tmp/vscode-remote-containers-1f491d04f947f3c76bc1a477200be15b5000e233.js $*; }; f"
+	helper = "!f() { /home/mjshin/.vscode-server/bin/fd6f3bce6709b121a895d042d343d71f317d74e7/node /tmp/vscode-remote-containers-347563eee42e3a36261c6137645748d7eaa2bc1f.js $*; }; f"

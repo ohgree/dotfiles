@@ -38,7 +38,7 @@ Plugin 'git://git.wincent.com/command-t.git'
 " NOTE: my custom plugins are installed here
 
 " YouCompleteMe by Valloric - symantic autocompletion in vim
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 " Options: YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -384,7 +384,7 @@ set listchars=tab:▸\ ,eol:¬
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " Color scheme settings (terminal)
-set termguicolors
+"set termguicolors
 set t_ut=
 set t_Co=256
 set background=dark
