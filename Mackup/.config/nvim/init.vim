@@ -41,11 +41,11 @@ let g:rustfmt_autosave = 1
 
 " delimitMate by Raimondi
 Plug 'Raimondi/delimitMate'
-"Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 "
 "Plug 'pangloss/vim-javascript'
 "Plug 'yuezk/vim-js'
-"Plug 'maxmellon/vim-jsx-pretty'
+Plug 'maxmellon/vim-jsx-pretty'
 "Plug 'chemzqm/vim-jsx-improve'
 Plug 'ap/vim-css-color'
 

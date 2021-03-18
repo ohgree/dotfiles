@@ -13,8 +13,8 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
 #ZSH_THEME="agnoster"
-ZSH_THEME="powerlevel10k/powerlevel10k"
 POWERLEVEL9K_MODE='nerdfont-complete'
+#ZSH_THEME="powerlevel10k/powerlevel10k"
 
 #fish-like truncation
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
@@ -66,11 +66,10 @@ plugins=(
    rbenv
    ruby
    virtualenv
-   zsh-autosuggestions
-   fast-syntax-highlighting
-   zsh-plugin-ssh
    cargo
-)
+   docker
+   docker-compose
+ )
 
 # User configuration
 
@@ -79,12 +78,9 @@ DEFAULT_USER=`whoami`
 
 #PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
-export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
+#export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 export PATH="$HOME/.cargo/bin:$PATH"
 # for YCM's rust semantic completion
-#export PATH="/var/folders/kr/0y0mh0vx5dl_sq9yx7bdynt80000gn/T/rust_install_wp78sf94/bin:$PATH"
-#export PATH="`rustc --print sysroot`/lib/rustlib/src/rust/src:$PATH"
 export PATH="$HOME/mytools:$PATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -107,10 +103,6 @@ source $ZSH/oh-my-zsh.sh
 
 export CLICOLOR=1
 
-# enable ls colors
-#export LSCOLORS=exfxcxdxbxeggdabagacad
-#export LS_COLORS="di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=36;43:su=0;41:sg=0;46:tw=0;30;42:ow=0;43:"
-#zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 eval `gdircolors ~/.dir_colors/solarized/dircolors.ansi-dark`
 alias ls='gls --color=auto'
 alias dir='gdir --color=auto'
@@ -165,3 +157,61 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 #unset zle_bracketed_paste
 
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+#source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+#source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+
+#export PATH="/Users/ohgree/repositories/pennybot/bin/command:$PATH"
+#source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+#source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+#export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
+#export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
+#export PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
+#export PATH="$(brew --prefix)/opt/gnu-tar/libexec/gnubin:$PATH"
+#export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
+#export GUILE_TLS_CERTIFICATE_DIRECTORY=$(brew --prefix)/etc/gnutls/
+#export PATH="$(brew --prefix)/opt/gnu-indent/libexec/gnubin:$PATH"
+#export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+
+#source /opt/bear/etc/pennyrc
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of Zinit's installer chunk
+#
+## Two regular plugins loaded without investigating.
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma/fast-syntax-highlighting
+
+# Plugin history-search-multi-word loaded with investigating.
+zinit load zdharma/history-search-multi-word
+
+# Load the pure theme, with zsh-async library that's bundled with it.
+#zinit ice pick"async.zsh" src"pure.zsh"
+#zinit light sindresorhus/pure
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+# A glance at the new for-syntax – load all of the above
+# plugins with a single command. For more information see:
+# https://zdharma.org/zinit/wiki/For-Syntax/
+zinit for \
+    light-mode  zsh-users/zsh-autosuggestions \
+    light-mode  zdharma/fast-syntax-highlighting \
+                zdharma/history-search-multi-word 
+    #light-mode pick"async.zsh" src"pure.zsh" \
+                #sindresorhus/pure
+
+# Binary release in archive, from GitHub-releases page.
+# After automatic unpacking it provides program "fzf".
+zinit ice from"gh-r" as"program"
+zinit load junegunn/fzf-bin
