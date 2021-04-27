@@ -1,0 +1,51 @@
+{
+  "editor.fontFamily": "'DejaVuSansMono Nerd Font','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "markdown.preview.fontSize": 12,
+  "terminal.integrated.fontSize": 14,
+  "keyboard.dispatch": "keyCode",
+  "editor.cursorBlinking": "solid",
+  "editor.fontSize": 13,
+  "window.zoomLevel": 1,
+  "colorize.languages": [
+    "javascript",
+    "javascriptreact",
+    "css",
+    "sass",
+    "scss",
+    "less",
+    "postcss",
+    "sss",
+    "stylus",
+    "xml",
+    "svg"
+  ],
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "vsicons.dontShowNewVersionMessage": true,
+  "vscode-neovim.neovimExecutablePaths.darwin": "/Users/ohgree/.local/dev/nvim-osx64/bin/nvim",
+  "editor.renderIndentGuides": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.external.osxExec": "iTerm2.app",
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.lineNumbers": "relative",
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/bin/nvim",
+  "editor.rulers": [80, 120],
+  "editor.formatOnSave": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": ["source.fixAll.format", "source.fixAll.eslint"],
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
+  "editor.fontLigatures": true,
+  "terminal.integrated.shell.linux": "/bin/bash",
+  "js/ts.implicitProjectConfig.experimentalDecorators": true,
+  "javascript.validate.enable": false,
+  "eslint.format.enable": true
+}

@@ -1,30 +1,24 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" TODO: Load plugins here (pathogen or vundle)
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 "Plugin 'code_complete'
 
 " Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
+Plug 'git://git.wincent.com/command-t.git'
 "Plugin 'file:///home/gmarik/path/to/plugin'
 
 " The sparkup vim script is in a subdirectory of this repo called vim.
@@ -87,10 +81,10 @@ nmap <leader>h <plug>(YCMHover)
 
 " UltiSnips - The ultimate snippet solution for Vim.
 " Track the engine.
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-space>"
@@ -108,13 +102,13 @@ let g:UltiSnipsEditSplit="vertical"
 
 " Unimpaired by tpope - Extended mappings.
 " :h unimpaired for documentation.
-Plugin 'tpope/vim-unimpaired'
+Plug 'tpope/vim-unimpaired'
 
 " NERDTree by scrooloose - a tree explorer plugin for vim
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
 " NERDTree syntax hightlight
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Options: NERDTree
 " Shortcut to open & close NERDTree
@@ -135,7 +129,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 "Plugin 'rstacruz/vim-closer'
 
 " delimitMate by Raimondi
-Plugin 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 " Options: delimitMate
 " Number of CRs to put, ex) if 2, {<CR> will place cursor between the lines
 let g:delimitMate_expand_cr = 2
@@ -143,10 +137,10 @@ let g:delimitMate_expand_cr = 2
 au FileType c,cpp,rust let b:delimitMate_matchpairs = '(:),{:},[:]'
 
 " vim-endwise - plugin that helps to end certain structures automatically.
-Plugin 'tpope/vim-endwise'
+Plug 'tpope/vim-endwise'
 
 " rainbow_parentheses - color matching parentheses differently
-Plugin 'junegunn/rainbow_parentheses.vim'
+Plug 'junegunn/rainbow_parentheses.vim'
 " Options: rainbow_parentheses
 " Activate
 au VimEnter * RainbowParentheses!!
@@ -170,8 +164,10 @@ augroup END
 "Plugin 'itchyny/lightline.vim'
 "let g:lightline = { 'colorscheme': 'seoul256' }
 
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'morhetz/gruvbox'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 
@@ -184,28 +180,14 @@ let g:airline_powerline_fonts = 1
 "augroup END
 
 " hybrid-material vim colorscheme
-Plugin 'kristijanhusak/vim-hybrid-material'
+Plug 'kristijanhusak/vim-hybrid-material'
 " Options: hybrid-material
 "let g:enable_bold_font = 1
 "let g:enable_italic_font = 1
 
-" Happy Hacking vim colorscheme
-Plugin 'YorickPeterse/happy_hacking.vim'
-
-" Gotham colorscheme
-" colorscheme gotham [or] colorscheme gotham256
-Plugin 'whatyouhide/vim-gotham'
-
-" Optimized solarized colorscheme
-Plugin 'lifepillar/vim-solarized8'
-
-" Vim-Two-Firewatch colorscheme
-Plugin 'rakr/vim-two-firewatch'
-"let g:two_firewatch_italics=1
-
 " Low-contrast Vim color scheme based on Seoul Colors
 " This is my go-to theme
-Plugin 'junegunn/seoul256.vim'
+Plug 'junegunn/seoul256.vim'
 " seoul256 (dark):
 "   Range:   233 (darkest) ~ 239 (lightest)
 "   Default: 237
@@ -216,58 +198,33 @@ let g:seoul256_background = 234
 let g:seoul256_light_background = 253
 let g:seoul256_srgb = 1
 
-" Plugin 'CRefVim'
-Plugin 'exvim/ex-cref'
-
 " NERD Commenter by scrooloose
-Plugin 'scrooloose/nerdcommenter'
+"Plug 'scrooloose/nerdcommenter'
 
 " Doxygen
-Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plug 'vim-scripts/DoxygenToolkit.vim'
 let g:load_doxygen_syntax=1
 
 " PEP8 Style indenting for python files
-Plugin 'Vimjas/vim-python-pep8-indent'
+Plug 'Vimjas/vim-python-pep8-indent'
 
 " Django file handling
-Plugin 'tweekmonster/django-plus.vim'
-
-" Advanced syntax highlighting for GNU As
-"Plugin 'Shirk/vim-gas'
-
-" Highlight variables under cursor
-"Plugin 'dominikduda/vim_current_word'
+Plug 'tweekmonster/django-plus.vim'
 
 " Rust vim config
-Plugin 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 let g:rustfmt_autosave = 1
 
-Plugin 'flrnd/plastic.vim'
-
-Plugin 'morhetz/gruvbox'
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_italic = '1'
-
-Plugin 'yuezk/vim-js'
-Plugin 'maxmellon/vim-jsx-pretty'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
 
 " NOTE: My custom plugins end here
 
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+" Initialize plugin system
+call plug#end()
 
 " To ignore plugin indent changes, instead use:
 filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
 set autoindent
 set cindent
@@ -278,9 +235,9 @@ set wrap
 " Show file stats
 set ruler
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set number
 set relativenumber
 set cursorline

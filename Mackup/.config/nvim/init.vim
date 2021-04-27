@@ -10,7 +10,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
-Plug 'scrooloose/nerdcommenter'
+"Plug 'scrooloose/nerdcommenter'
 "Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 Plug 'christoomey/vim-tmux-navigator'
@@ -18,6 +18,7 @@ Plug 'christoomey/vim-tmux-navigator'
 "Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 " Unimpaired by tpope - Extended mappings.
 " :h unimpaired for documentation.
 Plug 'tpope/vim-unimpaired'
